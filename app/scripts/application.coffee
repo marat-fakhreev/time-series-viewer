@@ -1,8 +1,28 @@
-class Application
-  constructor: ->
-    @initMessage = 'application started'
+Controller = require('scripts/controllers/controller')
+Router = require('scripts/routers/router')
 
-  start: ->
-    console.log @initMessage
+App = new Marionette.Application
 
-module.exports = new Application
+App.addRegions
+  mainRegion: '#main_region'
+
+App.navigate = (route, options) ->
+  options or= {}
+  Backbone.history.navigate(route, options)
+
+App.on 'start', ->
+  @controller = new Controller
+  @router = new Router(controller: @controller)
+
+  Backbone.history.start
+    pushState: true
+    root: '/'
+
+  $(document).on 'click', '.js-link', (event) ->
+    event.preventDefault()
+    href = $(event.currentTarget).attr('href')
+    App.navigate(href, trigger: true)
+
+  console.log 'app started'
+
+module.exports = App

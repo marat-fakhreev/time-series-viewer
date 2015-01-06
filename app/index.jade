@@ -3,14 +3,25 @@ html
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title Gulp Bootstrap
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel="stylesheet" href="/application.css")
     script(type="text/javascript" src="/application.js")
   body
-    #wrapper.wrapper
-      article
-        | Gulp Bootstrap
-    .footer
-      | Gulp Bootstrap
+    .wrapper
+      nav.top-bar(data-topbar='', role='navigation')
+        ul.title-area
+          li.name
+            h1
+              a(href='') Time Series Viewer
+        section.top-bar-section
+          ul.right
+            li.active
+              a(href='' class='js-link') Upload
+            li
+              a(href='all_plots' class='js-link') All Plots
+            li
+              a(href='one_plot' class='js-link') One Plot
+
+      .container
+        #main_region

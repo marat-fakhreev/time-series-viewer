@@ -2,6 +2,8 @@
   "name": "gulp-bootstrap",
   "dependencies": {
     "jquery": "~2.1.3",
-    "underscore": "~1.7.0"
+    "marionette": "~2.3.0",
+    "foundation": "~5.5.0",
+    "flot": "~0.8.3"
   }
 }

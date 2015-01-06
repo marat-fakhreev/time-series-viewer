@@ -1,5 +1,5 @@
-require('jquery')
-require('underscore')
+require('marionette')
+require('flot')
 
 App = require('scripts/application')
 
