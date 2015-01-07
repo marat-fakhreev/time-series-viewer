@@ -23,6 +23,4 @@ App.on 'start', ->
     href = $(event.currentTarget).attr('href')
     App.navigate(href, trigger: true)
 
-  console.log 'app started'
-
 module.exports = App

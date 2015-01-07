@@ -13,34 +13,27 @@ class PlotView extends Marionette.ItemView
           show: true
         points:
           show: true
-          radius: 1
+          radius: 2
         shadowSize: 2
-      grid:
-        margin:
-          left: 50
-          top: 0
-          right: 0
-          bottom: 0
       xaxis:
         tickSize: @model.get('x_step_value')
         tickDecimals: 0
         min: @model.get('x_low_value')
         max: @model.get('x_top_value')
-        position: 'bottom'
       yaxis:
         tickSize: @model.get('y_step_value')
         tickDecimals: 0
         min: @model.get('y_low_value')
         max: @model.get('y_top_value')
-        position: 'left'
-        alignTicksWithAxis: 'right'
 
-    graphData = [{
+    graphData = [
       label: @model.get('title')
       data: @model.get('coordinates')
-      color: 'purple'
-    }]
+      color: @model.collection.indexOf(@model)
+    ]
 
-    $.plot(@ui.container, graphData, params)
+    setTimeout(=>
+      $.plot(@ui.container, graphData, params)
+    , 10)
 
 module.exports = PlotView

@@ -16,12 +16,12 @@ html
               a(href='') Time Series Viewer
         section.top-bar-section
           ul.right
-            li.active
-              a(href='' class='js-link') Upload
             li
-              a(href='all_plots' class='js-link') All Plots
+              a(href='', class='js-link', data-url="") Upload
             li
-              a(href='one_plot' class='js-link') One Plot
+              a(href='all_plots', class='js-link', data-url="all_plots") All Plots
+            li
+              a(href='one_plot', class='js-link', data-url="one_plot") One Plot
 
       .container
         #main_region

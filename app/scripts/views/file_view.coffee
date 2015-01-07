@@ -1,4 +1,3 @@
-ReqRes = require('scripts/facades/reqres')
 template = require('templates/form')
 
 class FileView extends Marionette.ItemView
@@ -16,14 +15,12 @@ class FileView extends Marionette.ItemView
     'change @ui.file': 'onUploadFile'
 
   initialize: ->
-    ReqRes.setHandler 'get:data', @onGetData
-
     @reader = new FileReader()
 
-    @reader.onload = (event) =>
-      DATA = JSON.parse(event.target.result)
+    @reader.onload = (event) ->
+      localStorage.setItem('data', event.target.result)
 
-    @reader.onerror = (event) =>
+    @reader.onerror = (event) ->
       console.error(event.target.error.code)
 
   onClickLoadFile: ->
