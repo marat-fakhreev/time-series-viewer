@@ -42,7 +42,8 @@
     "underscore": "./bower_components/underscore/underscore.js",
     "backbone": "./bower_components/backbone/backbone.js",
     "marionette": "./bower_components/marionette/lib/backbone.marionette.js",
-    "flot": "./bower_components/flot/jquery.flot.js"
+    "flot": "./bower_components/flot/jquery.flot.js",
+    "flot.navigate": "./bower_components/flot/jquery.flot.navigate.js"
   },
   "browserify-shim": {
     "jquery": "$",
@@ -64,6 +65,12 @@
       "exports": "$.plot",
       "depends": [
         "jquery"
+      ]
+    },
+    "flot.navigate": {
+      "depends": [
+        "jquery",
+        "flot"
       ]
     }
   }

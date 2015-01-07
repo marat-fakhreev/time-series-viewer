@@ -30,6 +30,10 @@ class OnePlotView extends Marionette.ItemView
         tickSize: @model.get('y_step_value')
         min: @model.get('y_low_value')
         max: @model.get('y_top_value')
+      zoom:
+        interactive: true
+      pan:
+        interactive: true
 
     @_renderCheckboxes()
     @_renderPlot()
