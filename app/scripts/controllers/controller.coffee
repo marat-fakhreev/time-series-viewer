@@ -1,7 +1,6 @@
 Layout = require('scripts/views/layout')
-FileView = require('scripts/views/file_view')
 PlotsView = require('scripts/views/plots_view')
-OnePlotView = require('scripts/views/one_plot_view')
+SinglePlotView = require('scripts/views/single_plot_view')
 
 class AppController extends Marionette.Controller
   initialize: ->
@@ -9,17 +8,13 @@ class AppController extends Marionette.Controller
     @model = new Backbone.Model
     @collection = new Backbone.Collection
 
-  root: ->
-    @layout.setNav('')
-    @layout.mainRegion.show(new FileView)
-
   allPlots: ->
-    @layout.setNav('all_plots')
+    @layout.setNav('')
     @data = JSON.parse(localStorage.getItem('data')) unless @data?
     @layout.mainRegion.show(new PlotsView(collection: new Backbone.Collection(@data)))
 
-  onePlot: ->
-    @layout.setNav('one_plot')
+  singlePlot: ->
+    @layout.setNav('single_plot')
     @data = JSON.parse(localStorage.getItem('data')) unless @data?
 
     model = new Backbone.Model({
@@ -32,7 +27,7 @@ class AppController extends Marionette.Controller
       data: @_setData()
     })
 
-    @layout.mainRegion.show(new OnePlotView(model: model))
+    @layout.mainRegion.show(new SinglePlotView(model: model))
 
   _setMin: (key) ->
     _.chain(@data).min((item) -> item[key]).value()[key]

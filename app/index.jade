@@ -15,13 +15,18 @@ html
             h1
               a(href='') Time Series Viewer
         section.top-bar-section
+          ul.left
+            li.upload-file-item
+              a.upload-file Upload file
+            li
+              .file
+                input(type="file" id="file")
+              a.file-name
           ul.right
             li
-              a(href='', class='js-link', data-url="") Upload
+              a(href='', class='js-link', data-url="") All Plots
             li
-              a(href='all_plots', class='js-link', data-url="all_plots") All Plots
-            li
-              a(href='one_plot', class='js-link', data-url="one_plot") One Plot
+              a(href='single_plot', class='js-link', data-url="single_plot") Single Plot
 
       .container
         #main_region

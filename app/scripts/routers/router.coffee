@@ -1,7 +1,6 @@
 class AppRouter extends Marionette.AppRouter
   appRoutes:
-    '': 'root'
-    'all_plots': 'allPlots'
-    'one_plot': 'onePlot'
+    '': 'allPlots'
+    'single_plot': 'singlePlot'
 
 module.exports = AppRouter

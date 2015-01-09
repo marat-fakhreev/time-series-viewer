@@ -1,6 +1,6 @@
-template = require('templates/one_plot')
+template = require('templates/single_plot')
 
-class OnePlotView extends Marionette.ItemView
+class SinglePlotView extends Marionette.ItemView
   template: template
 
   ui:
@@ -58,4 +58,4 @@ class OnePlotView extends Marionette.ItemView
       $.plot(@ui.container, data, @params)
     , 10)
 
-module.exports = OnePlotView
+module.exports = SinglePlotView

@@ -5,7 +5,6 @@ gulp.task 'build', ->
   runSequence(
     'install'
     'clean'
-    'sprites'
     [
       'copy'
       'templates'
