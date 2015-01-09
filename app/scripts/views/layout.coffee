@@ -16,18 +16,18 @@ class AppLayout extends Marionette.LayoutView
     'change @ui.file': 'onUploadFile'
 
   initialize: ->
+    @bindUIElements()
+    fileName = localStorage.getItem('file_name')
+    @ui.fileName.html("file \"#{fileName}\" has been uploaded") if fileName?
+
     @reader = new FileReader()
 
     @reader.onload = (event) ->
       localStorage.setItem('data', event.target.result)
+      Backbone.history.loadUrl(Backbone.history.fragment)
 
     @reader.onerror = (event) ->
       console.error(event.target.error.code)
-
-  initialize: ->
-    @bindUIElements()
-    fileName = localStorage.getItem('file_name')
-    @ui.fileName.html("file \"#{fileName}\" has been uploaded") if fileName
 
   onClickLoadFile: ->
     @ui.file.trigger('click')
